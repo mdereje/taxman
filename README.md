@@ -21,6 +21,9 @@ Business info:
 - Tax bracket for income
 - Federal allocated budge for last year
 - Federal spending for last year
+- Federal elected officials
 Output: 
 - Break down of federal spending based on taxes paid/owed.
 
+## Questions
+- How does TurboTax get info about the tax payer by just using a W-2 number?
