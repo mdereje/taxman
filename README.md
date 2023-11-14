@@ -63,6 +63,62 @@ Income tax data has been downloaded from here.
 If we cannot find something better, we can script this into a database and serve it as an API.
 https://smartasset.com/taxes/massachusetts-tax-calculator#YdvuuRrYUt
 There is also a calculator service. We can use that.
+
+#### MA
+```Shell
+curl 'https://smartasset.com/taxes/massachusetts-tax-calculator?render=json&' \
+  -H 'authority: smartasset.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'cookie: _sa_orig_ex=1cCoLzXyg9W6KHjLwbtF6nRKqUWjoSocz73UDMEEjBxtJhIl1qKJ8pIFvcYOjm6Q; _sa_lt=rgd1aKDxAhmKd7R5HTE5TwzkruZMCdJF; _sa_pt=ERmMUwpljmC6SPQBr4lZR9eHbqF2WHxtDW3TlkhuaTnu03mS2C4YVIAP9XCZT4D2; _sa_st_w_mortgagepurchaserates=mrg7FxPg7eR0BNWY4x7UevvI; landingPage=smartasset.com/taxes/massachusetts-tax-calculator; _sa_st=krRNmX5jC5ksPAn1ewojtHff' \
+  -H 'origin: https://smartasset.com' \
+  -H 'pragma: no-cache' \
+  -H 'referer: https://smartasset.com/taxes/massachusetts-tax-calculator' \
+  -H 'sec-ch-ua: "Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "macOS"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36' \
+  -H 'x-requested-with: XMLHttpRequest' \
+  --data-raw 'ud-it-household-income=137867' \
+  --compressed
+```
+
+#### CA
+```Shell
+curl 'https://smartasset.com/taxes/california-tax-calculator?render=json&' \
+  -H 'authority: smartasset.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'cookie: _sa_orig_ex=1cCoLzXyg9W6KHjLwbtF6nRKqUWjoSocz73UDMEEjBxtJhIl1qKJ8pIFvcYOjm6Q; _sa_lt=rgd1aKDxAhmKd7R5HTE5TwzkruZMCdJF; _sa_pt=ERmMUwpljmC6SPQBr4lZR9eHbqF2WHxtDW3TlkhuaTnu03mS2C4YVIAP9XCZT4D2; _sa_st_w_mortgagepurchaserates=mrg7FxPg7eR0BNWY4x7UevvI; landingPage=smartasset.com/taxes/massachusetts-tax-calculator; _sa_st=krRNmX5jC5ksPAn1ewojtHff' \
+  -H 'origin: https://smartasset.com' \
+  -H 'pragma: no-cache' \
+  -H 'referer: https://smartasset.com/taxes/california-tax-calculator' \
+  -H 'sec-ch-ua: "Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "macOS"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36' \
+  -H 'x-requested-with: XMLHttpRequest' \
+  --data-raw 'ud-it-household-income=140000' \
+  --compressed
+```
+#### Short version that seems to work
+```Shell
+curl 'https://smartasset.com/taxes/california-tax-calculator?render=json&' \
+  -X 'POST' \
+  -H 'authority: smartasset.com' \
+  --data-raw 'ud-it-household-income=140000' \
+  --compressed
+```
 ## Future Features
 Can have information on bills passed that year with specific tags to what they relate to. 
 - Bill information
