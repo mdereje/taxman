@@ -61,6 +61,8 @@ Alright we are here but can we get in a better possession? So far it seems like 
 https://taxfoundation.org/data/all/state/state-income-tax-rates-2023/
 Income tax data has been downloaded from here.
 If we cannot find something better, we can script this into a database and serve it as an API.
+https://smartasset.com/taxes/massachusetts-tax-calculator#YdvuuRrYUt
+There is also a calculator service. We can use that.
 ## Future Features
 Can have information on bills passed that year with specific tags to what they relate to. 
 - Bill information
