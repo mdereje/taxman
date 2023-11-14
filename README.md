@@ -54,3 +54,15 @@ curl -X GET https://api.usaspending.gov/api/v2/agency/012/
   "messages": []
 }
 ```
+
+Alright we are here but can we get in a better possession? So far it seems like it works and i like it but the keyboard alone is not enough
+
+### Income tax data
+https://taxfoundation.org/data/all/state/state-income-tax-rates-2023/
+Income tax data has been downloaded from here.
+If we cannot find something better, we can script this into a database and serve it as an API.
+## Future Features
+Can have information on bills passed that year with specific tags to what they relate to. 
+- Bill information
+- votes for and against
+- which tax areas does it touch.
