@@ -11,17 +11,17 @@ class FiscalDataService:
         }
         
     def getExchangeRates(self, recordDate:str = '2023-01-01', currencyFilter= ['Canada-Dollar','Mexico-Peso'], fields=['country_currency_desc','exchange_rate','record_date'], dateCompare='eq'):
-        '''
-        record_date = YYYY-MM-dd
-        fields = country_currency_desc, exchange_rate,record_dat
-        filter=country_currency_desc:in:(Canada-Dollar,Mexico-Peso)
-        dateCompare =   lt= Less than
-                    lte= Less than or equal to
-                    gt= Greater than
-                    gte= Greater than or equal to
-                    eq= Equal to
-                    in= Contained in a given set
-        '''
+        """Get exchange rates!
+
+        Args:
+            recordDate (str, optional): _description_. Defaults to '2023-01-01'.
+            currencyFilter (list, optional): _description_. Defaults to ['Canada-Dollar','Mexico-Peso'].
+            fields (list, optional): _description_. Defaults to ['country_currency_desc','exchange_rate','record_date'].
+            dateCompare (str, optional): _description_. Defaults to 'eq'.
+
+        Returns:
+            _type_: _description_
+        """
         currencies = f""
         
             
