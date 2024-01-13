@@ -1,3 +1,10 @@
+# TAXMAN
+## TO Run
+ - `cd src`
+ - `python3 -m uvicorn main:app --reload`
+ - go to http://127.0.0.1:8000/doc
+
+
 ## The idea
 A user is able to put in their w2's for the year and the application should display show them exactly what they have payed for.
 It should break down each income tax paid by:

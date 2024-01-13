@@ -2,6 +2,7 @@
 import json
 from rich.console import Console
 from integrations.fiscalData import FiscalDataService
+from models.W2Info import W2Info
 
 # req = requests.request('GET', 'https://httpbin.org/get')
 
@@ -29,7 +30,37 @@ from integrations.fiscalData import FiscalDataService
 # }
 
 
-fiscalDataService = FiscalDataService()
-result = fiscalDataService.getExchangeRates()
-listOfResults = list(result['data'])
-print(len(listOfResults))
+# fiscalDataService = FiscalDataService()
+# result = fiscalDataService.getExchangeRates()
+# listOfResults = list(result['data'])
+# print(len(listOfResults))
+
+from fastapi import FastAPI
+from decimal import Decimal
+
+app = FastAPI()
+
+@app.get("/health")
+def hello():
+  return {'API Status': 'Healthy'} 
+
+
+'''
+curl -X POST -H "Content-Type: application/json" -d '{
+    "wages": 5000,
+    "federalIncomeTaxWitheld": 1000,
+    "socialSecurityTaxWitheld": 200,
+    "stateInfo": [
+        {
+            "state": "CA",
+            "incomeTaxPayed": 200
+        }
+    ]
+}' http://localhost:8000/w2Info
+'''
+@app.post("/w2Info")
+def calculateTaxes(w2Info: W2Info) -> str:
+    print(w2Info)
+    info = W2Info(['CA', 'NY'], Decimal('5000'), Decimal('1000'), Decimal('500'), [{'state': 'CA', 'value': Decimal('200')}])
+    json_info = json.dumps(info.to_dict())
+    return json_info
