@@ -17,7 +17,7 @@ class W2Info(BaseModel):
     def to_dict(self):
         return {
             'wages': str(self.wages),
-            'federalIncomeTaxWitheld': str(self.federal_income_tax_withheld),
-            'socialSecurityTaxWitheld': str(self.social_security_tax_withheld),
-            'stateInfo': self.state_income_taxes
+            'federal_income_tax_withheld': str(self.federal_income_tax_withheld),
+            'social_security_tax_withheld': str(self.social_security_tax_withheld),
+            'state_income_taxes': self.state_income_taxes
         }

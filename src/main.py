@@ -48,9 +48,9 @@ def hello():
 '''
 curl -X POST -H "Content-Type: application/json" -d '{
     "wages": 5000,
-    "federalIncomeTaxWitheld": 1000,
-    "socialSecurityTaxWitheld": 200,
-    "stateInfo": [
+    "federal_income_tax_withheld": 1000,
+    "social_security_tax_withheld": 200,
+    "state_income_taxes": [
         {
             "state": "CA",
             "incomeTaxPayed": 200
@@ -61,6 +61,6 @@ curl -X POST -H "Content-Type: application/json" -d '{
 @app.post("/w2Info")
 def calculateTaxes(w2Info: W2Info) -> str:
     print(w2Info)
-    info = W2Info(['CA', 'NY'], Decimal('5000'), Decimal('1000'), Decimal('500'), [{'state': 'CA', 'value': Decimal('200')}])
+    info = W2Info(Decimal('5000'), Decimal('1000'), Decimal('500'), [{'state': 'CA', 'value': Decimal('200')}])
     json_info = json.dumps(info.to_dict())
     return json_info
