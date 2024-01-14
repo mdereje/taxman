@@ -9,6 +9,7 @@ class W2Info(BaseModel):
     state_income_taxes: List[dict]
     
     def __init__(self, wages: Decimal, federal_income_tax_withheld: Decimal, social_security_tax_withheld: Decimal, state_income_taxes: List[dict]):
+        super().__init__(wages=wages, federal_income_tax_withheld=federal_income_tax_withheld, social_security_tax_withheld=social_security_tax_withheld, state_income_taxes=state_income_taxes)
         self.wages = wages
         self.federal_income_tax_withheld = federal_income_tax_withheld
         self.social_security_tax_withheld = social_security_tax_withheld

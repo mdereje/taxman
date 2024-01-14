@@ -1,10 +1,17 @@
-import json
 from rich.console import Console
 from src.integrations.fiscalData import FiscalDataService
 from src.models.W2Info import W2Info
-
 from fastapi import FastAPI
 from decimal import Decimal
+from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
+
+console = Console()
+fiscalDataService = FiscalDataService()
+result = fiscalDataService.getExchangeRates()
+listOfResults = list(result['data'])
+print(len(listOfResults))
+
 
 app = FastAPI()
 
@@ -30,9 +37,8 @@ curl -X POST -H "Content-Type: application/json" -d '{
 def calculateTaxes(w2Info: W2Info) -> str:
     try:
         print(w2Info)
-        info = W2Info(Decimal('5000'), Decimal('1000'), Decimal('500'), [{'state': 'CA', 'value': Decimal('200')}])
-        json_info = json.dumps(info.to_dict())
-        return json_info
+        console.print(f"[u][bold cyan]{w2Info}[/bold cyan][/u]",justify="center")
+        return JSONResponse(content=jsonable_encoder(w2Info), status_code=200)
     except AttributeError as e:
         print(e)
         return str(e)
